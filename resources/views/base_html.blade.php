@@ -47,6 +47,9 @@
     <script src="{{
             url('startbootstrap-sb-admin-2-templates')
         }}/vendor/jquery/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" integrity="sha512-efAcjYoYT0sXxQRtxGY37CKYmqsFVOIwMApaEbrxJr4RwqVVGw8o+Lfh/+59TU07+suZn1BWq4fDl5fdgyCNkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="{{
             url('startbootstrap-sb-admin-2-templates')
         }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

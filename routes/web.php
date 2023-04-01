@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,14 @@ Route::controller(AkunController::class)->group(function () {
     Route::get('/akun/edit/{id}', 'edit');
     Route::put('/akun/edit/{id}', 'update');
     Route::delete('/akun/delete/{id}', 'delete');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/user', 'index');
+    Route::get('/user/create', 'create');
+    Route::post('/user/create', 'store');
+    Route::get('/user/{id}', 'show');
+    Route::get('/user/edit/{id}', 'edit');
+    Route::put('/user/edit/{id}', 'update');
+    Route::delete('/user/delete/{id}', 'delete');
 });

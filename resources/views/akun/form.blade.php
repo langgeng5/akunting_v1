@@ -2,12 +2,16 @@
 
 @section('subtitle', 'AKUN')
 
-@section('page_header', 'Tambah Akun')
+@if (isset($akun))
+    @section('page_header', 'Ubah Akun')
+@else
+    @section('page_header', 'Tambah Akun')
+@endif
 
 @section('content')
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -29,7 +33,7 @@
                             @method('put')
                         @endisset
                         <div class="mb-3">
-                            <label for="kodeReff" class="form-label">Kode Reff</label>
+                            <label for="kodeReff" class="form-label">Kode Reff<span class="text-danger">*</span></label>
                             <input
                                 id="kodeReff"
                                 name="kode_reff"
@@ -43,7 +47,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="kategoriAkun" class="form-label">Kategori Akun</label>
+                            <label for="kategoriAkun" class="form-label">Kategori Akun<span class="text-danger">*</span></label>
                             <input
                                 id="kategoriAkun"
                                 name="kategori_akun"
@@ -57,7 +61,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="namaAkun" class="form-label">Nama Akun</label>
+                            <label for="namaAkun" class="form-label">Nama Akun<span class="text-danger">*</span></label>
                             <input
                                 id="namaAkun"
                                 name="nama_akun"
@@ -72,7 +76,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success btn-submit">Submit</button>
+                            <button type="submit" class="btn btn-sm btn-success btn-submit">Submit</button>
                         </div>
 
                     </form>

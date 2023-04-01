@@ -1,8 +1,8 @@
 @extends('main_layout')
 
-@section('subtitle', 'AKUN')
+@section('subtitle', 'USER')
 
-@section('page_header', 'Data Akun')
+@section('page_header', 'Data User')
 
 @section('content')
 
@@ -21,10 +21,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            Data Akun
+                            Data User
                         </div>
                         <div class="col-md-6 text-right">
-                            <a class="btn btn-sm btn-primary" href="{{ url('akun/create') }}">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a class="btn btn-sm btn-primary" href="{{ url('user/create') }}">Tambah <i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -32,19 +32,27 @@
                     <table class="table table-striped table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th width="20%">Kode Akun</th>
-                                <th width="30%">Jenis Akun</th>
-                                <th width="35%">Nama Akun</th>
+                                <th width="10%">Username</th>
+                                <th width="15%">Nama</th>
+                                <th width="15%">Alamat</th>
+                                <th width="10%">Kontak</th>
+                                <th width="15%">Tgl. Lahir</th>
+                                <th width="10%">Jenis Kelamin</th>
+                                <th width="10%">Jabatan</th>
                                 <th width="15%" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data_akun as $row)
+                            @foreach ($data_user as $row)
                             <tr>
-                                <td>{{ $row->kode_reff }}</td>
-                                <td>{{ $row->kategori_akun }}</td>
-                                <td>{{ $row->nama_akun }}</td>
-                                <td class="text-center">@include('component.action_buttons', ['edit_url' => '/akun/edit/'.$row->id_akun, 'delete_url' => '/akun/delete/'.$row->id_akun,])</td>
+                                <td>{{ $row->username }}</td>
+                                <td>{{ $row->nama_pengguna }}</td>
+                                <td>{{ $row->alamat ?? '-' }}</td>
+                                <td>{{ $row->kontak ?? '-' }}</td>
+                                <td>{{ $row->tgl_lahir }}</td>
+                                <td>{{ Str::ucfirst($row->jenis_kelamin) }}</td>
+                                <td>{{ Str::ucfirst($row->level) }}</td>
+                                <td class="text-center">@include('component.action_buttons', ['edit_url' => '/user/edit/'.$row->id_user, 'delete_url' => '/user/delete/'.$row->id_user,])</td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -6,9 +6,6 @@ use App\Http\Requests\akun\StoreAkunRequest;
 use App\Http\Requests\akun\UpdateAkunRequest;
 use App\Models\Akun;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class AkunController extends Controller

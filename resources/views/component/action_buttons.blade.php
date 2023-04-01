@@ -1,11 +1,17 @@
 <div>
     <form id="doDelete" action="{{ url($delete_url) ?? '#' }}" method="POST">
-        <button onclick="showData('{{ $show_url ?? '#' }}')" id="btnShow" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
-        <button onclick="editData('{{ $edit_url ?? '#' }}')"id="btnEdit" class="btn btn-sm btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></button>
+        @isset($show_url)
+            <button onclick="showData('{{ $show_url ?? '#' }}')" type="button" id="btnShow" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
+        @endisset
+        @isset($edit_url)
+            <button onclick="editData('{{ $edit_url ?? '#' }}')" type="button" id="btnEdit" class="btn btn-sm btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></button>
+        @endisset
 
         @csrf
         @method('delete')
-        <button onclick="deleteData()" type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        @isset($delete_url)
+            <button onclick="deleteData()" type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        @endisset
     </form>
 </div>
 
