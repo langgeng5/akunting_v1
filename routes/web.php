@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\KasMasukController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,14 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/edit/{id}', 'edit');
     Route::put('/user/edit/{id}', 'update');
     Route::delete('/user/delete/{id}', 'delete');
+});
+
+Route::controller(KasMasukController::class)->group(function () {
+    Route::get('/kas-masuk', 'index');
+    Route::get('/kas-masuk/create', 'create');
+    Route::post('/kas-masuk/create', 'store');
+    Route::get('/kas-masuk/{id}', 'show');
+    Route::get('/kas-masuk/edit/{id}', 'edit');
+    Route::put('/kas-masuk/edit/{id}', 'update');
+    Route::delete('/kas-masuk/delete/{id}', 'delete');
 });
