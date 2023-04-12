@@ -21,6 +21,6 @@ class KasKeluar extends Model
 
     public function jurnal()
     {
-        return $this->hasMany('App\Jurnal', 'no_transaksi', 'no_bkk');
+        return $this->hasMany('App\Models\Jurnal', 'kas_keluar_id', 'no_bkk');
     }
 }

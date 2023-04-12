@@ -38,7 +38,7 @@ class UpdateKasMasukRequest extends FormRequest
             'no_bkm.unique' => 'No BKM Telah Digunakan.',
             'tgl_bkm.required' => 'Tanggal BKM Harus Diisi.',
             'diterima_dari.required' => 'Diterima Dari Harus Diisi.',
-            'diterima_dari.unique' => 'Diterima Dari Telah Digunakan.'
+            'untuk_penerimaan.required' => 'Untuk Penerimaan Harus Diisi.'
         ];
     }
 }

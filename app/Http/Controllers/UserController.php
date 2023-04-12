@@ -21,13 +21,6 @@ class UserController extends Controller
         return view('user.index', ['data_user' => $data_user]);
     }
 
-    public function show(string $id): View
-    {
-        $post = User::findOrFail($id);
-
-        return view('main_layout');
-    }
-
     public function create(): View
     {
         return view('user.form');

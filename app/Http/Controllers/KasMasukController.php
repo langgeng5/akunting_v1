@@ -17,13 +17,6 @@ class KasMasukController extends Controller
         return view('kas_masuk.index', ['data_kas_masuk' => $data_kas_masuk]);
     }
 
-    public function show(string $id): View
-    {
-        $post = Akun::findOrFail($id);
-
-        return view('main_layout');
-    }
-
     public function create(): View
     {
         $akun = Akun::all();
@@ -40,6 +33,7 @@ class KasMasukController extends Controller
             $totalDebet = $totalDebet + $request->input('debet')[$key];
 
             $jurnal = array(
+                'no_transaksi' => 'bkm' . $request->input('no_bkm'),
                 'tgl_transaksi' => $request->input('tgl_bkm'),
                 'no_rekening' => $request->input('no_rekening')[$key],
                 'debet_rupiah' => $request->input('debet')[$key],
@@ -62,6 +56,8 @@ class KasMasukController extends Controller
         $akun = Akun::all();
         $kas_masuk = KasMasuk::findOrFail($id);
 
+        print_r($kas_masuk->jurnal);
+
         return view('kas_masuk.form', ['akun' => $akun, 'kas_masuk' => $kas_masuk]);
     }
 
@@ -75,6 +71,7 @@ class KasMasukController extends Controller
             $totalDebet = $totalDebet + $request->input('debet')[$key];
 
             $jurnal = array(
+                'no_transaksi' => 'bkm' . $request->input('no_bkm'),
                 'tgl_transaksi' => $request->input('tgl_bkm'),
                 'no_rekening' => $request->input('no_rekening')[$key],
                 'debet_rupiah' => $request->input('debet')[$key],

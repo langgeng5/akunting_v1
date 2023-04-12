@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('no_rekening');
             $table->decimal('debet_rupiah', 20, 2);
             $table->decimal('kredit_rupiah', 20, 2);
+            $table->string('kas_masuk_id')->nullable();
+            $table->string('kas_keluar_id')->nullable();
             $table->timestamps();
         });
     }

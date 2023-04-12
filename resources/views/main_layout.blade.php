@@ -38,14 +38,14 @@
             <!-- Heading -->
             <div class="sidebar-heading">Master</div>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('user') }}">
                     <i class="fa fa-user"></i>
                     <span>Data User</span></a
                 >
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (request()->is('akun')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('akun') }}">
                     <i class="fa fa-credit-card"></i>
                     <span>Data Akun</span></a
@@ -58,10 +58,22 @@
             <!-- Heading -->
             <div class="sidebar-heading">Transaksi</div>
 
-            <li class="nav-item">
+            <li class="nav-item {{ (request()->is('kas-masuk')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('kas-masuk') }}">
                     <i class="fas fa-money-bill"></i>
                     <span>Data Kas Masuk</span></a
+                >
+            </li>
+            <li class="nav-item {{ (request()->is('kas-keluar')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('kas-keluar') }}">
+                    <i class="fas fa-money-bill"></i>
+                    <span>Data Kas Keluar</span></a
+                >
+            </li>
+            <li class="nav-item {{ (request()->is('jurnal')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('jurnal') }}">
+                    <i class="fas fa-money-bill"></i>
+                    <span>Data Jurnal</span></a
                 >
             </li>
 

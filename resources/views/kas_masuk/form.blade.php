@@ -92,9 +92,11 @@
                             <label class="form-label">Akun<button type="button" id="add_row" class="btn btn-sm btn-primary ms-2"><i class="fa fa-plus" aria-hidden="true"></i></button></label>
                             <div id="akun_list">
                                 @includeWhen(!isset($kas_masuk), 'kas_masuk.akun_input_row', ['akun' => $akun])
-                                @foreach ($kas_masuk->jurnal as $jurnal)
-                                    @include('kas_masuk.akun_input_row', ['akun' => $akun, 'no_rekening' => $jurnal->no_rekening, 'debet' => $jurnal->debet_rupiah, 'kredit' => $jurnal->kredit_rupiah])
-                                @endforeach
+                                @isset($kas_masuk)
+                                    @foreach ($kas_masuk->jurnal as $jurnal)
+                                        @include('kas_masuk.akun_input_row', ['akun' => $akun, 'no_rekening' => $jurnal->no_rekening, 'debet' => $jurnal->debet_rupiah, 'kredit' => $jurnal->kredit_rupiah])
+                                    @endforeach
+                                @endisset
                             </div>
                         </div>
 
@@ -118,7 +120,6 @@
     <script>
         $(document).ready(function() {
             $("#add_row").click(function(){
-                console.log('dafds');
                 var input = $("#akun_input").html();
                 $("#akun_list").append(input);
             });

@@ -21,6 +21,6 @@ class KasMasuk extends Model
 
     public function jurnal()
     {
-        return $this->hasMany('App\Models\Jurnal', 'no_transaksi', 'no_bkm');
+        return $this->hasMany('App\Models\Jurnal', 'kas_masuk_id', 'no_bkm');
     }
 }

@@ -18,4 +18,9 @@ class Jurnal extends Model
     ];
 
     protected $hidden = [];
+
+    public function akun()
+    {
+        return $this->belongsTo('App\Models\Akun', 'no_rekening', 'id_akun');
+    }
 }
