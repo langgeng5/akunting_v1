@@ -16,13 +16,6 @@ class AkunController extends Controller
         return view('akun.index', ['data_akun' => $data_akun]);
     }
 
-    public function show(string $id): View
-    {
-        $post = Akun::findOrFail($id);
-
-        return view('main_layout');
-    }
-
     public function create(): View
     {
         return view('akun.form');

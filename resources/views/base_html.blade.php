@@ -15,6 +15,7 @@
         </title>
 
         <!-- Custom fonts for this template-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link
             href="{{
                 url('startbootstrap-sb-admin-2-templates')
@@ -40,6 +41,8 @@
             }}/vendor/datatables/dataTables.bootstrap4.min.css"
             rel="stylesheet"
         />
+
+
     </head>
 
     @yield('layout')
