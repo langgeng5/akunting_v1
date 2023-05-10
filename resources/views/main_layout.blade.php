@@ -83,10 +83,10 @@
             <!-- Heading -->
             <div class="sidebar-heading">Laporan</div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('transaksi') }}">
+            <li class="nav-item {{ (request()->is('buku-besar')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('buku-besar') }}">
                     <i class="fa fa-credit-card"></i>
-                    <span>Laporan 1</span></a
+                    <span>Buku Besar</span></a
                 >
             </li>
 

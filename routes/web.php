@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\BukuBesarController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KasKeluarController;
 use App\Http\Controllers\KasMasukController;
@@ -64,4 +65,8 @@ Route::controller(KasKeluarController::class)->group(function () {
 
 Route::controller(JurnalController::class)->group(function () {
     Route::get('/jurnal', 'index');
+});
+
+Route::controller(BukuBesarController::class)->group(function () {
+    Route::get('/buku-besar', 'index');
 });
