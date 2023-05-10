@@ -16,4 +16,9 @@ class Akun extends Model
     ];
 
     protected $hidden = [];
+
+    public function jurnal()
+    {
+        return $this->hasMany('App\Models\Jurnal', 'no_rekening', 'id_akun');
+    }
 }
