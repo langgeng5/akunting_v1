@@ -32,9 +32,10 @@
                     <table class="table table-striped table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th width="20%">Kode Akun</th>
-                                <th width="30%">Jenis Akun</th>
-                                <th width="35%">Nama Akun</th>
+                                <th width="15%">Kode Akun</th>
+                                <th width="20%">Kategori Akun</th>
+                                <th width="20%">Jenis Akun</th>
+                                <th width="30%">Nama Akun</th>
                                 <th width="15%" class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -42,7 +43,8 @@
                             @foreach ($data_akun as $row)
                             <tr>
                                 <td>{{ $row->kode_reff }}</td>
-                                <td>{{ $row->kategori_akun }}</td>
+                                <td>{{ Str::ucfirst($row->kategori_akun) }}</td>
+                                <td>{{ $row->jenis_akun }}</td>
                                 <td>{{ $row->nama_akun }}</td>
                                 <td class="text-center">@include('component.action_buttons', ['edit_url' => '/akun/edit/'.$row->id_akun, 'delete_url' => '/akun/delete/'.$row->id_akun,])</td>
                             </tr>

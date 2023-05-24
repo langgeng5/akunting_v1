@@ -48,15 +48,26 @@
                         </div>
                         <div class="mb-3">
                             <label for="kategoriAkun" class="form-label">Kategori Akun<span class="text-danger">*</span></label>
-                            <input
-                                id="kategoriAkun"
-                                name="kategori_akun"
-                                type="text"
-                                class="form-control @error('kategori_akun') is-invalid @enderror"
-                                placeholder="Kategori Akun"
-                                value="{{ old('kategori_akun', $akun->kategori_akun ?? '') }}"
-                            >
+                            <select id="kategoriAkun" name="kategori_akun" class="form-select form-control">
+                                <option value="">Pilih Kategori Akun</option>
+                                <option value="Neraca" @if (old('kategori_akun',  $akun->kategori_akun ?? '') == 'Neraca') {{ 'selected' }} @endif>Neraca</option>
+                                <option value="Laba-rugi" @if (old('kategori_akun',  $akun->kategori_akun ?? '') == 'Laba-rugi') {{ 'selected' }} @endif>Laba-Rugi</option>
+                            </select>
                             @error('kategori_akun')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="jenisAkun" class="form-label">Jenis Akun<span class="text-danger">*</span></label>
+                            <select id="jenisAkun" name="jenis_akun" class="form-select form-control">
+                                <option value="">Pilih Jenis Akun</option>
+                                <option value="Aktiva" @if (old('jenis_akun',  $akun->jenis_akun ?? '') == 'Aktiva') {{ 'selected' }} @endif>Aktiva</option>
+                                <option value="Hutang" @if (old('jenis_akun',  $akun->jenis_akun ?? '') == 'Hutang') {{ 'selected' }} @endif>Hutang</option>
+                                <option value="Ekuitas" @if (old('jenis_akun',  $akun->jenis_akun ?? '') == 'Ekuitas') {{ 'selected' }} @endif>Ekuitas</option>
+                                <option value="Pendapatan" @if (old('jenis_akun',  $akun->jenis_akun ?? '') == 'Pendapatan') {{ 'selected' }} @endif>Pendapatan</option>
+                                <option value="Biaya" @if (old('jenis_akun',  $akun->jenis_akun ?? '') == 'Biaya') {{ 'selected' }} @endif>Biaya</option>
+                            </select>
+                            @error('jenis_akun')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

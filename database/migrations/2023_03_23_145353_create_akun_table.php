@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_akun');
             $table->string('kode_reff', 10);
             $table->string('kategori_akun', 50);
+            $table->string('jenis_akun', 50);
             $table->string('nama_akun', 50);
             $table->timestamps();
         });

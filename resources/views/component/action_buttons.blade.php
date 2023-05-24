@@ -10,7 +10,7 @@
         @csrf
         @method('delete')
         @isset($delete_url)
-            <button onclick="deleteData()" type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <button onclick="deleteData(this)" type="button" id="btnDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
         @endisset
     </form>
 </div>
@@ -25,9 +25,10 @@ function editData(url) {
     window.location.href = '{{ url('/') }}'+url;
 }
 
-function deleteData() {
+function deleteData(data) {
     if (confirm("Apa Anda Yakin Menghapus Data Ini?") == true) {
-        $('#doDelete').submit();
+        var form = data.closest('form');
+        form.submit();
     }
 }
 
