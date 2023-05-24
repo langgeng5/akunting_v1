@@ -12,6 +12,7 @@ class Akun extends Model
     protected $fillable = [
         'kode_reff',
         'kategori_akun',
+        'jenis_akun',
         'nama_akun',
     ];
 

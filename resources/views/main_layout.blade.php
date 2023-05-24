@@ -90,10 +90,38 @@
                 >
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('transaksi') }}">
+            <li class="nav-item {{ (request()->is('laba-rugi')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('laba-rugi') }}">
                     <i class="fa fa-credit-card"></i>
-                    <span>Laporan 2</span></a
+                    <span>Laba Rugi</span></a
+                >
+            </li>
+
+            <li class="nav-item {{ (request()->is('neraca')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('neraca') }}">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Neraca</span></a
+                >
+            </li>
+
+            <li class="nav-item {{ (request()->is('neraca-saldo')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('neraca-saldo') }}">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Neraca Saldo</span></a
+                >
+            </li>
+
+            <li class="nav-item {{ (request()->is('perubahan-modal')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('perubahan-modal') }}">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Perubahan Modal</span></a
+                >
+            </li>
+
+            <li class="nav-item {{ (request()->is('arus-kas')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('arus-kas') }}">
+                    <i class="fa fa-credit-card"></i>
+                    <span>Arus Kas</span></a
                 >
             </li>
 

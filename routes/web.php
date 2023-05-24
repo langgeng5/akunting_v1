@@ -1,10 +1,15 @@
 <?php
 
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\ArusKasController;
 use App\Http\Controllers\BukuBesarController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KasKeluarController;
 use App\Http\Controllers\KasMasukController;
+use App\Http\Controllers\LabaRugiController;
+use App\Http\Controllers\NeracaController;
+use App\Http\Controllers\NeracaSaldoController;
+use App\Http\Controllers\PerubahanModalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,4 +74,24 @@ Route::controller(JurnalController::class)->group(function () {
 
 Route::controller(BukuBesarController::class)->group(function () {
     Route::get('/buku-besar', 'index');
+});
+
+Route::controller(LabaRugiController::class)->group(function () {
+    Route::get('/laba-rugi', 'index');
+});
+
+Route::controller(NeracaController::class)->group(function () {
+    Route::get('/neraca', 'index');
+});
+
+Route::controller(NeracaSaldoController::class)->group(function () {
+    Route::get('/neraca-saldo', 'index');
+});
+
+Route::controller(PerubahanModalController::class)->group(function () {
+    Route::get('/perubahan-modal', 'index');
+});
+
+Route::controller(ArusKasController::class)->group(function () {
+    Route::get('/arus-kas', 'index');
 });

@@ -56,8 +56,6 @@ class KasMasukController extends Controller
         $akun = Akun::all();
         $kas_masuk = KasMasuk::findOrFail($id);
 
-        print_r($kas_masuk->jurnal);
-
         return view('kas_masuk.form', ['akun' => $akun, 'kas_masuk' => $kas_masuk]);
     }
 

@@ -22,6 +22,9 @@ class StoreAkunRequest extends FormRequest
             'kategori_akun' => [
                 'required'
             ],
+            'jenis_akun' => [
+                'required'
+            ],
             'nama_akun' => [
                 'required',
                 'unique:akun'
@@ -35,6 +38,7 @@ class StoreAkunRequest extends FormRequest
             'kode_reff.required' => 'Kode Reff Harus Diisi.',
             'kode_reff.unique' => 'Kode Reff Telah Digunakan.',
             'kategori_akun.required' => 'Kategori Akun Harus Diisi.',
+            'jenis_akun.required' => 'Jenis Akun Harus Diisi.',
             'nama_akun.required' => 'Nama Akun Harus Diisi.',
             'nama_akun.unique' => 'Nama Akun Telah Digunakan.'
         ];

@@ -15,7 +15,6 @@ class BukuBesarController extends Controller
                 $query->whereYear('tgl_transaksi', $request->tahun)->whereMonth('tgl_transaksi', $request->bulan);
             }])->get();
         } else {
-            // $data_akun = Akun::all();
             $data_akun = [];
         }
         return view('buku_besar.index', ['data_akun' => $data_akun]);
