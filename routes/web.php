@@ -7,6 +7,7 @@ use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KasKeluarController;
 use App\Http\Controllers\KasMasukController;
 use App\Http\Controllers\LabaRugiController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NeracaController;
 use App\Http\Controllers\NeracaSaldoController;
 use App\Http\Controllers\PerubahanModalController;
@@ -25,15 +26,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main_layout');
+    return view('dashboard/index');
 });
 
 Route::get('/login', function () {
     return view('login');
 });
 
+Route::controller(LoginController::class)->group(function () {
+    Route::post('/auth', 'authenticate');
+    Route::get('/auth/logout', 'logout');
+});
+
 Route::controller(AkunController::class)->group(function () {
-    Route::get('/akun', 'index');
+    Route::get('/akun', 'index')->middleware('auth');
     Route::get('/akun/create', 'create');
     Route::post('/akun/create', 'store');
     Route::get('/akun/edit/{id}', 'edit');
