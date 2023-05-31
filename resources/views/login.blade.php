@@ -1,6 +1,15 @@
 @extends('base_html') @section('layout')
 
-<body class="bg-gradient-primary">
+<style>
+    .login-body {
+        background: url({{ url('images/business-information-accounting-application.jpg') }}) no-repeat center center fixed;
+        background-size: cover;
+    }
+    /*  */
+</style>
+
+
+<body class="login-body">
     <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -19,14 +28,20 @@
                                             Welcome Back!
                                         </h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST" action="{{ url('auth') }}">
+                                        @csrf
                                         <div class="form-group">
                                             <input
                                                 type="text"
-                                                class="form-control form-control-user"
+                                                class="form-control form-control-user @error('username') is-invalid @enderror"
                                                 id="exampleInputEmail"
                                                 placeholder="Username"
+                                                name="username"
+                                                value="{{ old('username', $user->username ?? '') }}"
                                             />
+                                            @error('username')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <input
@@ -34,16 +49,20 @@
                                                 class="form-control form-control-user"
                                                 id="exampleInputPassword"
                                                 placeholder="Password"
+                                                name="password"
                                             />
                                         </div>
-                                        <a
-                                            href="{{ url('/') }}"
+                                        <button
+                                            type="submit"
                                             class="btn btn-primary btn-user btn-block"
                                         >
                                             Login
-                                        </a>
-                                        <hr />
+                                        </button>
                                     </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <i><a href="{{ url('user/create') }}">Buat User Baru</a></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>

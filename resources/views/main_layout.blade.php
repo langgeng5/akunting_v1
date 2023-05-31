@@ -11,7 +11,7 @@
             <!-- Sidebar - Brand -->
             <a
                 class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="index.html"
+                href="#"
             >
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
@@ -24,62 +24,70 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0" />
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a
-                >
-            </li>
+            @if(Auth::check())
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('/') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a
+                    >
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+            @endif
 
-            <!-- Heading -->
-            <div class="sidebar-heading">Master</div>
+            @if (isset(Auth::user()->level) && Auth::user()->level == 'admin')
 
-            <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('user') }}">
-                    <i class="fa fa-user"></i>
-                    <span>Data User</span></a
-                >
-            </li>
+                 <!-- Heading -->
+                <div class="sidebar-heading">Master</div>
 
-            <li class="nav-item {{ (request()->is('akun')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('akun') }}">
-                    <i class="fa fa-credit-card"></i>
-                    <span>Data Akun</span></a
-                >
-            </li>
+                <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('user') }}">
+                        <i class="fa fa-user"></i>
+                        <span>Data User</span></a
+                    >
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
+                <li class="nav-item {{ (request()->is('akun')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('akun') }}">
+                        <i class="fa fa-credit-card"></i>
+                        <span>Data Akun</span></a
+                    >
+                </li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">Transaksi</div>
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
 
-            <li class="nav-item {{ (request()->is('kas-masuk')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('kas-masuk') }}">
-                    <i class="fas fa-money-bill"></i>
-                    <span>Data Kas Masuk</span></a
-                >
-            </li>
-            <li class="nav-item {{ (request()->is('kas-keluar')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('kas-keluar') }}">
-                    <i class="fas fa-money-bill"></i>
-                    <span>Data Kas Keluar</span></a
-                >
-            </li>
-            <li class="nav-item {{ (request()->is('jurnal')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('jurnal') }}">
-                    <i class="fas fa-money-bill"></i>
-                    <span>Data Jurnal</span></a
-                >
-            </li>
+                <!-- Heading -->
+                <div class="sidebar-heading">Transaksi</div>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
+                <li class="nav-item {{ (request()->is('kas-masuk')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('kas-masuk') }}">
+                        <i class="fas fa-money-bill"></i>
+                        <span>Data Kas Masuk</span></a
+                    >
+                </li>
+                <li class="nav-item {{ (request()->is('kas-keluar')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('kas-keluar') }}">
+                        <i class="fas fa-money-bill"></i>
+                        <span>Data Kas Keluar</span></a
+                    >
+                </li>
+                <li class="nav-item {{ (request()->is('jurnal')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('jurnal') }}">
+                        <i class="fas fa-money-bill"></i>
+                        <span>Data Jurnal</span></a
+                    >
+                </li>
 
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+
+            @endif
+
+
+            @if (isset(Auth::user()->level) && Auth::user()->level == 'pemilik')
             <!-- Heading -->
             <div class="sidebar-heading">Laporan</div>
 
@@ -124,6 +132,8 @@
                     <span>Arus Kas</span></a
                 >
             </li>
+
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
@@ -171,7 +181,7 @@
                             >
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small"
-                                    >Douglas McGee</span
+                                    >{{ Auth::user() ? Auth::user()->nama_pengguna : "Guess" }}</span
                                 >
                                 <img
                                     class="img-profile rounded-circle"
@@ -187,25 +197,6 @@
                                 class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown"
                             >
-                                <a class="dropdown-item" href="#">
-                                    <i
-                                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"
-                                    ></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i
-                                        class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"
-                                    ></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i
-                                        class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"
-                                    ></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a
                                     class="dropdown-item"
                                     href="#"
@@ -295,7 +286,7 @@
                     >
                         Cancel
                     </button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ url('auth/logout') }}">Logout</a>
                 </div>
             </div>
         </div>
