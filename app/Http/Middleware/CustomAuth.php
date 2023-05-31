@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpFoundation\Response;
 
 class CustomAuth
@@ -15,16 +15,16 @@ class CustomAuth
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
 
-        if (Auth::check()) {
+        if (Auth::check() || request()->is('user/create')) {
 
             // User is authenticated, proceed with the request
             return $next($request);
         }
 
         // User is not authenticated, redirect to the login page
-        return redirect('/login');
+        return redirect('login');
     }
 }

@@ -11,7 +11,7 @@
             <!-- Sidebar - Brand -->
             <a
                 class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="index.html"
+                href="#"
             >
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
@@ -24,18 +24,20 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0" />
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a
-                >
-            </li>
+            @if(Auth::check())
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('/') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a
+                    >
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" />
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+            @endif
 
-            @if (Auth::user()->level == 'admin')
+            @if (isset(Auth::user()->level) && Auth::user()->level == 'admin')
 
                  <!-- Heading -->
                 <div class="sidebar-heading">Master</div>
@@ -85,7 +87,7 @@
             @endif
 
 
-            @if (Auth::user()->level == 'pemilik')
+            @if (isset(Auth::user()->level) && Auth::user()->level == 'pemilik')
             <!-- Heading -->
             <div class="sidebar-heading">Laporan</div>
 
@@ -179,7 +181,7 @@
                             >
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small"
-                                    >{{ Auth::user()->nama_pengguna }}</span
+                                    >{{ Auth::user() ? Auth::user()->nama_pengguna : "Guess" }}</span
                                 >
                                 <img
                                     class="img-profile rounded-circle"

@@ -5,7 +5,9 @@
         background: url({{ url('images/business-information-accounting-application.jpg') }}) no-repeat center center fixed;
         background-size: cover;
     }
+    /*  */
 </style>
+
 
 <body class="login-body">
     <div class="container">
@@ -57,6 +59,10 @@
                                             Login
                                         </button>
                                     </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <i><a href="{{ url('user/create') }}">Buat User Baru</a></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
