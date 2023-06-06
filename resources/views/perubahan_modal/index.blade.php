@@ -69,8 +69,8 @@
                             @foreach ($data_akun as $akun)
                             <tr>
                                 <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
-                                <td>{{ $akun->debet_rupiah ? $akun->debet_rupiah : '0' }}</td>
-                                <td>{{ $akun->kredit_rupiah ? $akun->kredit_rupiah : '0' }}</td>
+                                <td>{{ $akun->debet_rupiah ? convertRupiah($akun->debet_rupiah) : convertRupiah(0) }}</td>
+                                <td>{{ $akun->kredit_rupiah ? convertRupiah($akun->kredit_rupiah) : convertRupiah(0) }}</td>
                             </tr>
                             @endforeach
                         </tbody>

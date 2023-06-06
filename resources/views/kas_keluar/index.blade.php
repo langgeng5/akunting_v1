@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $row->no_bkk }}</td>
                                 <td>{{ $row->tgl_bkk }}</td>
-                                <td>{{ $row->uang_berjumlah }}</td>
+                                <td>{{ convertRupiah($row->uang_berjumlah) }}</td>
                                 <td class="text-center">@include('component.action_buttons', ['edit_url' => '/kas-keluar/edit/'.$row->no_bkk, 'delete_url' => '/kas-keluar/delete/'.$row->no_bkk,])</td>
                             </tr>
                             @endforeach

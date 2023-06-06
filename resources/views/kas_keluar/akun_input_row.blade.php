@@ -9,12 +9,14 @@
         </select>
     </div>
     <div class="col">
-        <input name="debet[]" type="number" class="form-control" placeholder="Debet" aria-label="Debet" value="{{ $debet ?? '0' }}">
+        <input name="debet[]" type="text" class="form-control format-rupiah" placeholder="Debet" aria-label="Debet" value="{{ $debet ?? '0' }}">
     </div>
     <div class="col">
-        <input name="kredit[]" type="number" class="form-control" placeholder="Kredit" aria-label="Kredit" value="{{ $kredit ?? '0' }}">
+        <input name="kredit[]" type="text" class="form-control format-rupiah" placeholder="Kredit" aria-label="Kredit" value="{{ $kredit ?? '0' }}">
     </div>
     <div class="col d-flex flex-grow-1 align-items-center">
         <button type="button" class="btn btn-sm btn-danger remove_row"><i class="fa fa-times" aria-hidden="true"></i></button>
     </div>
 </div>
+
+

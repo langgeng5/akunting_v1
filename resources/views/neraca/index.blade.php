@@ -83,9 +83,9 @@
                             @for ($i = 0; $i < $numArray; $i++)
                             <tr>
                                 <td>{{ isset($data_akun['aktiva'][$i]) ? $data_akun['aktiva'][$i]->kode_reff." - ".$data_akun['aktiva'][$i]->nama_akun : '' }}</td>
-                                <td>{{ isset($data_akun['aktiva'][$i]) ? $data_akun['aktiva'][$i]->kredit_rupiah - $data_akun['aktiva'][$i]->debet_rupiah : '' }}</td>
+                                <td>{{ isset($data_akun['aktiva'][$i]) ? convertRupiah($data_akun['aktiva'][$i]->kredit_rupiah - $data_akun['aktiva'][$i]->debet_rupiah) : '' }}</td>
                                 <td>{{ isset($data_akun['pasiva'][$i]) ? $data_akun['pasiva'][$i]->kode_reff." - ".$data_akun['pasiva'][$i]->nama_akun : '' }}</td>
-                                <td>{{ isset($data_akun['pasiva'][$i]) ? $data_akun['pasiva'][$i]->debet_rupiah - $data_akun['pasiva'][$i]->kredit_rupiah : '' }}</td>
+                                <td>{{ isset($data_akun['pasiva'][$i]) ? convertRupiah($data_akun['pasiva'][$i]->debet_rupiah - $data_akun['pasiva'][$i]->kredit_rupiah ): '' }}</td>
                             </tr>
                             @php
                                 if (isset($data_akun['aktiva'][$i])) {
@@ -99,9 +99,9 @@
 
                             <tr>
                                 <th width="25%">Total Aktiva</th>
-                                <th width="25%">{{ $totalAktiva }}</th>
+                                <th width="25%">{{ convertRupiah($totalAktiva) }}</th>
                                 <th width="25%">Total Pasiva</th>
-                                <th width="25%">{{ $totalPasiva }}</th>
+                                <th width="25%">{{ convertRupiah($totalPasiva) }}</th>
                             </tr>
                         </tbody>
                     </table>

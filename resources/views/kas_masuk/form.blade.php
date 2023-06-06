@@ -119,9 +119,18 @@
 @section('script')
     <script>
         $(document).ready(function() {
+            $(":input").inputmask();
+            $(".format-rupiah").inputmask({
+                "alias" : "rupiah"
+            });
+
             $("#add_row").click(function(){
                 var input = $("#akun_input").html();
                 $("#akun_list").append(input);
+
+                $(".format-rupiah").inputmask({
+                "alias" : "rupiah"
+            });
             });
 
             $(document).on('click', '.remove_row', function () {
