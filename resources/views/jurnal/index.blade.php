@@ -42,8 +42,8 @@
                                 <td>{{ $row->no_transaksi }}</td>
                                 <td>{{ $row->tgl_transaksi }}</td>
                                 <td>{{ $row->akun ? $row->akun->kode_reff." - ".$row->akun->nama_akun : '-' }}</td>
-                                <td>{{ $row->debet_rupiah }}</td>
-                                <td>{{ $row->kredit_rupiah }}</td>
+                                <td>{{ convertRupiah($row->debet_rupiah) }}</td>
+                                <td>{{ convertRupiah($row->kredit_rupiah) }}</td>
                             </tr>
                             @endforeach
                         </tbody>

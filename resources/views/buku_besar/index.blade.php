@@ -73,8 +73,8 @@
                                 <tr>
                                     <td>{{ $jurnal->tgl_transaksi }}</td>
                                     <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
-                                    <td>{{ $jurnal->debet_rupiah }}</td>
-                                    <td>{{ $jurnal->kredit_rupiah }}</td>
+                                    <td>{{ convertRupiah($jurnal->debet_rupiah) }}</td>
+                                    <td>{{ convertRupiah($jurnal->kredit_rupiah) }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

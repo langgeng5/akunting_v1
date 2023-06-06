@@ -29,15 +29,16 @@ class KasKeluarController extends Controller
 
         $totalKredit = 0;
         $jurnals = [];
+        // dd($request->input('kredit'));
         foreach ($request->input('no_rekening') as $key => $value) {
-            $totalKredit = $totalKredit + $request->input('kredit')[$key];
+            $totalKredit = $totalKredit + (float)$request->input('kredit')[$key];
 
             $jurnal = array(
                 'no_transaksi' => 'bkk' . $request->input('no_bkk'),
                 'tgl_transaksi' => $request->input('tgl_bkk'),
                 'no_rekening' => $request->input('no_rekening')[$key],
-                'debet_rupiah' => $request->input('debet')[$key],
-                'kredit_rupiah' => $request->input('kredit')[$key],
+                'debet_rupiah' => (float)$request->input('debet')[$key],
+                'kredit_rupiah' => (float)$request->input('kredit')[$key],
             );
 
             array_push($jurnals, $jurnal);
@@ -66,14 +67,14 @@ class KasKeluarController extends Controller
         $totalKredit = 0;
         $jurnals = [];
         foreach ($request->input('no_rekening') as $key => $value) {
-            $totalKredit = $totalKredit + $request->input('kredit')[$key];
+            $totalKredit = $totalKredit + (float)$request->input('kredit')[$key];
 
             $jurnal = array(
                 'no_transaksi' => 'bkk' . $request->input('no_bkk'),
                 'tgl_transaksi' => $request->input('tgl_bkk'),
                 'no_rekening' => $request->input('no_rekening')[$key],
-                'debet_rupiah' => $request->input('debet')[$key],
-                'kredit_rupiah' => $request->input('kredit')[$key],
+                'debet_rupiah' => (float)$request->input('debet')[$key],
+                'kredit_rupiah' => (float)$request->input('kredit')[$key],
             );
 
             array_push($jurnals, $jurnal);

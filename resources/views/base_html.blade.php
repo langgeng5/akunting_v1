@@ -75,5 +75,21 @@
         url('startbootstrap-sb-admin-2-templates')
     }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <script>
+        Inputmask.extendAliases({
+            rupiah: {
+                "alias" : "numeric",
+                "prefix": 'Rp ',
+                "groupSeparator": ".",
+                "radixPoint": ",",
+                "digits": 2,
+                'digitsOptional': false,
+                "clearMaskOnLostFocus" : true,
+                "removeMaskOnSubmit" : true
+                }
+            });
+
+    </script>
+
     @yield('script')
 </html>
