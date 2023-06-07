@@ -35,7 +35,7 @@
                                 <th width="20%">Nomor</th>
                                 <th width="30%">Tanggal</th>
                                 <th width="35%">Jumlah</th>
-                                <th width="15%" class="text-center">Aksi</th>
+                                {{-- <th width="15%" class="text-center">Aksi</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +44,7 @@
                                 <td>{{ $row->no_bkk }}</td>
                                 <td>{{ $row->tgl_bkk }}</td>
                                 <td>{{ convertRupiah($row->uang_berjumlah) }}</td>
-                                <td class="text-center">@include('component.action_buttons', ['edit_url' => '/kas-keluar/edit/'.$row->no_bkk, 'delete_url' => '/kas-keluar/delete/'.$row->no_bkk,])</td>
+                                {{-- <td class="text-center">@include('component.action_buttons', ['edit_url' => '/kas-keluar/edit/'.$row->no_bkk, 'delete_url' => '/kas-keluar/delete/'.$row->no_bkk,])</td> --}}
                             </tr>
                             @endforeach
                         </tbody>
