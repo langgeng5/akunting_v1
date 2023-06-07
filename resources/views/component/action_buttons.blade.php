@@ -1,5 +1,5 @@
 <div>
-    <form id="doDelete" action="{{ url($delete_url) ?? '#' }}" method="POST">
+    <form id="doDelete" action="{{ isset($delete_url) ? url($delete_url) : '#' }}" method="POST">
         @isset($show_url)
             <button onclick="showData('{{ $show_url ?? '#' }}')" type="button" id="btnShow" class="btn btn-sm btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button>
         @endisset
