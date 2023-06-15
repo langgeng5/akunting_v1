@@ -2,7 +2,7 @@
 
 @section('subtitle', 'DASHBOARD')
 
-@section('page_header', 'Dashboard')
+{{-- @section('page_header', 'Dashboard') --}}
 
 @section('content')
 
@@ -21,7 +21,8 @@
                 <div class="card-body text-center py-1">
                     <h1>
                         <b>
-                            SISTEM INFORMASI AKUNTANSI BERBASIS WEB PADA CV YULIANA KONVEKSI
+                            {{-- SISTEM INFORMASI AKUNTANSI BERBASIS WEB PADA CV YULIANA KONVEKSI --}}
+                            SISTEM INFORMASI AKUNTANSI
                         </b>
                     </h1>
                 </div>

@@ -26,12 +26,12 @@
 
             @if(Auth::check())
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('/') }}">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a
                     >
-                </li>
+                </li> --}}
 
                 <!-- Divider -->
                 <hr class="sidebar-divider" />
@@ -221,7 +221,7 @@
                         class="d-sm-flex align-items-center justify-content-between mb-4"
                     >
                         <h1 class="h3 mb-0 text-gray-800">
-                            @yield('page_header', 'this is header')
+                            @yield('page_header', '')
                         </h1>
                     </div>
 

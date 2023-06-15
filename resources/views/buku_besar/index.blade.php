@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="contentLaporan">
             @if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div>
+                    <div class="d-print-none">
                         <form method="GET" action="{{ url('buku-besar') }}">
                             @csrf
                             <div class="row">
@@ -52,35 +52,38 @@
                                 </div>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-sm btn-success btn-submit">Submit</button>
+                                    <button id="btnPrint" type="button" class="btn btn-sm btn-primary">Print</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <hr>
-                    @foreach ($data_akun as $akun)
-                        <h6><b>{{ $akun->kode_reff." - ".$akun->nama_akun }}</b></h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th width="25%">Tanggal</th>
-                                    <th width="25%">Akun</th>
-                                    <th width="25%">Debet</th>
-                                    <th width="25%">Kredit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($akun->jurnal as $jurnal)
-                                <tr>
-                                    <td>{{ $jurnal->tgl_transaksi }}</td>
-                                    <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
-                                    <td>{{ convertRupiah($jurnal->debet_rupiah) }}</td>
-                                    <td>{{ convertRupiah($jurnal->kredit_rupiah) }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <br>
-                    @endforeach
+                    <hr class="d-print-none">
+                    <div>
+                        @foreach ($data_akun as $akun)
+                            <h6><b>{{ $akun->kode_reff." - ".$akun->nama_akun }}</b></h6>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="25%">Tanggal</th>
+                                        <th width="25%">Akun</th>
+                                        <th width="25%">Debet</th>
+                                        <th width="25%">Kredit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($akun->jurnal as $jurnal)
+                                    <tr>
+                                        <td>{{ $jurnal->tgl_transaksi }}</td>
+                                        <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
+                                        <td>{{ convertRupiah($jurnal->debet_rupiah) }}</td>
+                                        <td>{{ convertRupiah($jurnal->kredit_rupiah) }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <br>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
