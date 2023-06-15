@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="contentLaporan">
             @if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div>
+                    <div class="d-print-none">
                         <form method="GET" action="{{ url('neraca-saldo') }}">
                             @csrf
                             <div class="row">
@@ -52,11 +52,12 @@
                                 </div>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-sm btn-success btn-submit">Submit</button>
+                                    <button id="btnPrint" type="button" class="btn btn-sm btn-primary">Print</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <hr>
+                    <hr class="d-print-none">
                     <table class="table table-bordered">
                         <thead>
                             <tr>

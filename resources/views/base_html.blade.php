@@ -89,6 +89,20 @@
                 }
             });
 
+        $(document).ready(function() {
+            $('#btnPrint').click(function() {
+                var content = $('#contentLaporan').html();
+                var head = $('head').html();
+
+                var newWindow = window.open();
+                newWindow.document.write(head);
+                newWindow.document.write(content);
+                newWindow.document.close();
+                newWindow.focus();
+                newWindow.print();
+                newWindow.close()
+            });
+        });
     </script>
 
     @yield('script')
