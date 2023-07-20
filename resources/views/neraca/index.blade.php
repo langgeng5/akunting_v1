@@ -48,7 +48,14 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="number" name="tahun" class="form-control" placeholder="Tahun" aria-label="Tahun">
+                                    <select id="tahun" name="tahun" class="form-control" required>
+                                        <option value="">Pilih Tahun</option>
+                                        @isset($tahun)
+                                            @foreach ($tahun as $row)
+                                                <option value="{{ $row->year }}">{{ $row->year }}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-sm btn-success btn-submit">Submit</button>
