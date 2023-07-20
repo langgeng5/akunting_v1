@@ -48,7 +48,14 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="number" name="tahun" class="form-control" placeholder="Tahun" aria-label="Tahun">
+                                    <select id="tahun" name="tahun" class="form-control" required>
+                                        <option value="">Pilih Tahun</option>
+                                        @isset($tahun)
+                                            @foreach ($tahun as $row)
+                                                <option value="{{ $row->year }}">{{ $row->year }}</option>
+                                            @endforeach
+                                        @endisset
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-sm btn-success btn-submit">Submit</button>
@@ -67,13 +74,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $totalDebet = 0;
+                                $totalKredit = 0;
+                            @endphp
                             @foreach ($data_akun as $akun)
+                            @php
+                                $totalDebet += $akun->debet_rupiah;
+                                $totalKredit = $akun->kredit_rupiah;
+                            @endphp
                             <tr>
                                 <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
                                 <td>{{ $akun->debet_rupiah ? convertRupiah($akun->debet_rupiah) : convertRupiah(0) }}</td>
                                 <td>{{ $akun->kredit_rupiah ? convertRupiah($akun->kredit_rupiah) : convertRupiah(0) }}</td>
                             </tr>
                             @endforeach
+                            <tr>
+                                <th>Total</th>
+                                <th>{{ convertRupiah($totalDebet) }}</th>
+                                <th>{{ convertRupiah($totalKredit) }}</th>
+                            </tr>
                         </tbody>
                     </table>
                     <br>

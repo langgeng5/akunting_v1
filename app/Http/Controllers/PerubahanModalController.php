@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Akun;
+use App\Models\Jurnal;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PerubahanModalController extends Controller
 {
@@ -23,6 +25,7 @@ class PerubahanModalController extends Controller
         } else {
             $data_akun = [];
         }
-        return view('perubahan_modal.index', ['data_akun' => $data_akun]);
+        $tahun_jurnal = Jurnal::select(DB::raw('YEAR(tgl_transaksi) as year'))->distinct()->get();
+        return view('perubahan_modal.index', ['data_akun' => $data_akun, 'tahun' => $tahun_jurnal]);
     }
 }
