@@ -81,7 +81,7 @@
                             @foreach ($data_akun as $akun)
                             @php
                                 $totalDebet += $akun->debet_rupiah;
-                                $totalKredit = $akun->kredit_rupiah;
+                                $totalKredit += $akun->kredit_rupiah;
                             @endphp
                             <tr>
                                 <td>{{ $akun->kode_reff." - ".$akun->nama_akun }}</td>
